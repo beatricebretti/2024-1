@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package datanode;
+
+option go_package = "./proto/datanode;datanode";
+
+// Servicio DataNode que almacena las decisiones de los mercenarios
+service DataNode {
+    rpc StoreDecision (DecisionRequest) returns (DecisionResponse);
+}
+
+// Mensaje de solicitud de decisión (similar al NameNode)
+message DecisionRequest {
+    string mercenary_id = 1;
+    string decision = 2;
+}
+
+// Mensaje de respuesta del almacenamiento de decisiones
+message DecisionResponse {
+    string status = 1;
+}

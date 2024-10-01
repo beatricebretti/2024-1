@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package namenode;
+
+option go_package = "./proto/namenode;namenode";
+
+// Servicio NameNode que distribuye las decisiones a los DataNodes
+service NameNode {
+    rpc DistributeDecisions (DecisionRequest) returns (DecisionResponse);
+}
+
+// Mensaje de solicitud de decisión
+message DecisionRequest {
+    string mercenary_id = 1;
+    string decision = 2;
+}
+
+// Mensaje de respuesta de la distribución de decisiones
+message DecisionResponse {
+    string status = 1;
+}

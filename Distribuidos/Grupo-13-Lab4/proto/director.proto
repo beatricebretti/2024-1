@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package director;
+
+option go_package = "./proto/director;director";
+
+// Servicio Director que manejará la comunicación con los mercenarios
+service Director {
+    rpc ReportReadiness (ReadinessRequest) returns (ReadinessResponse);
+}
+
+// Mensaje para reportar la preparación de un mercenario
+message ReadinessRequest {
+    string mercenary_id = 1;
+}
+
+// Mensaje de respuesta del reporte de preparación
+message ReadinessResponse {
+    string status = 1;
+}

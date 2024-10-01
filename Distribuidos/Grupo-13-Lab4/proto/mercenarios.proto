@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package mercenarios;
+
+option go_package = "./proto/mercenarios;mercenarios";
+
+// Definición del servicio del Mercenario
+service Mercenario {
+    // Método para reportar la preparación del mercenario
+    rpc ReportarPreparacion (PreparacionRequest) returns (PreparacionResponse);
+}
+
+// Mensaje de solicitud para reportar preparación
+message PreparacionRequest {
+    string id_mercenario = 1;
+}
+
+// Mensaje de respuesta para reportar preparación
+message PreparacionResponse {
+    string estado = 1;
+}
